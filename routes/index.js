@@ -12,4 +12,18 @@ app.get("/", (req, res) => {
   res.json(info);
 });
 
+const adminRoutes = require("./admin.routes");
+const publicRoutes = require("./public.routes");
+//const protectedRoutes = require("./protected.routes");
+
+app.use(adminRoutes);
+app.use(publicRoutes);
+//app.use(protectedRoutes);
+
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  res.status(404);
+  res.json(createError(404));
+});
+
 module.exports = app;
