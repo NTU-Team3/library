@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -27,8 +28,4 @@ app.use(function (req, res, next) {
 module.exports = app;
 const router = require(".");
 
-const PORT = 3000;
-
-router.listen(PORT, () => {
-  console.log(`Listening to port ${PORT}...`);
-});
+app.listen(process.env.PORT);
