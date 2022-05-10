@@ -1,0 +1,35 @@
+
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+      }
+    
+
+     .nav-list{
+       display:  flex;
+       margin: 0;
+      background-color: grey;
+      height: 5rem;
+      align-items: center;
+      list-style: none;
+
+      }
+
+      main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .nav-list>li{
+        margin: 0 1rem;
+      }
+      a{
+        text-decoration: none;
+      }
+
+      a:hover,a:active,a.active{
+        color: black;
+        font-size: bolder;
+      }
+     
