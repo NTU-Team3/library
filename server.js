@@ -1,6 +1,6 @@
-const router = require("./routes");
+const router = require(".");
 
-const PORT = 3000;
+const PORT = 3001;
 
 router.listen(PORT, () => {
   console.log(`Listening to port ${PORT}...`);

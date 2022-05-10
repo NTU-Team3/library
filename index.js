@@ -7,14 +7,11 @@ app.use(express.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 app.set("views", "views");
 
-app.use(express.static(path.join(__dirname, "..", "public")));
-
-// Import libraries for handling HTTP errors
-const createError = require("http-errors");
+app.use(express.static(path.join(__dirname, "public")));
 
 /* GET home page. */
-const adminRoutes = require("./admin.routes");
-const publicRoutes = require("./public.routes");
+const adminRoutes = require("./routes/admin.routes");
+const publicRoutes = require("./routes/public.routes");
 //const protectedRoutes = require("./protected.routes");
 
 app.use(adminRoutes);
@@ -28,3 +25,10 @@ app.use(function (req, res, next) {
 });
 
 module.exports = app;
+const router = require(".");
+
+const PORT = 3000;
+
+router.listen(PORT, () => {
+  console.log(`Listening to port ${PORT}...`);
+});
