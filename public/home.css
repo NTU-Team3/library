@@ -26,10 +26,11 @@
       }
       a{
         text-decoration: none;
+        color: black;
       }
 
       a:hover,a:active,a.active{
-        color: black;
+        color:aqua;
         font-size: bolder;
       }
      
