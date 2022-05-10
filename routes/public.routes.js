@@ -7,14 +7,17 @@ const publicController = new PublicController();
 
 const router = express.Router();
 
-router.get("/public", (req, res) => {
-  let info = {};
-  info.message = "You have called a public route!";
-  res.json(info);
-  //return res.send("You have called a public route");
-});
-//GET /general/book
-// Return all the books .
+const createError = require("http-errors");
+
+/* Home page routes*/
+router.get("/", publicController.getHomePage);
+router.get("/booksearch/:booktitle", publicController.getSearchResult);
+/* -End- Home page  */
+
+/* Login or signup page routes*/
+router.get("/login_signup", publicController.getLoginSignup);
+router.post("/login_signup", publicController.postLoginSignup);
+//router.post("/login_signup", publicController.postLoginSignup);
 
 router.get("/public/book", publicController.book);
 

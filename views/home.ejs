@@ -22,9 +22,13 @@
     </header>
     <main>
       <h1><%=pageTitle %></h1>
-      <form action="/booksearch" method="post">
-        <input type="text" />
-        <button>Search</button>
+      <form action="/booksearch/:booktitle" method="get">
+        <input
+          type="text"
+          placeholder="Find book title here!"
+          name="booktitle"
+        />
+        <button type="submit">Search</button>
       </form>
     </main>
   </body>
