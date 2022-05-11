@@ -10,7 +10,7 @@ router.post("/books/:id/comments", (req, res) => {
 });
 // POST Ratings
 router.get("/books/:id/ratings", (req, res) => {
-    res.send("Book is rated.");
-  });
+  res.send("Book is rated.");
+});
 
 module.exports = router;
