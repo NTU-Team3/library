@@ -2,7 +2,8 @@ const { sequelize } = require("../config/db");
 
 const Book = require("../models/book");
 const User = require("../models/user");
-const History = require("../models/history");
+const Cart = require("../models/cart");
+const Review = require("../models/reviews");
 
 module.exports = {
   //
@@ -81,50 +82,51 @@ module.exports = {
       },
     ]);
 
-    console.log("Creating History table");
-    /* Create History table */
-    await History.sync({ alter: true });
+    console.log("Creating Cart table");
+    /* Create User table */
+    await Cart.sync({ alter: true });
 
-    console.log("Bulk insert histories");
-    /* Bulk insert records into History table */
-    const newHistories = await History.bulkCreate([
+    console.log("Bulk insert users");
+    /* Bulk insert records into User table */
+    const newCart = await Cart.bulkCreate([
       {
-        userId: 1111,
-        bookId: 12,
-        borrowedDate: "2022-01-01 11:11:11",
-        returnDate: "2022-01-10 11:11:11",
+        userId: 1,
+        bookId: 1,
       },
       {
-        userId: 2222,
-        bookId: 13,
-        borrowedDate: "2022-02-01 12:22:22",
-        returnDate: "2022-02-10 12:22:22",
+        userId: 1,
+        bookId: 2,
       },
       {
-        userId: 3333,
-        bookId: 14,
-        borrowedDate: "2022-03-01 13:33:33",
-        returnDate: "2022-03-10 13:33:33",
+        userId: 2,
+        bookId: 1,
       },
       {
-        userId: 4444,
-        bookId: 15,
-        borrowedDate: "2022-04-01 14:44:44",
-        returnDate: "2022-04-10 14:44:44",
+        userId: 3,
+        bookId: 4,
       },
     ]);
 
-    // error handling
-    if (!newBooks) {
-      result.status = 404;
-      result.message = `Book list is empty`;
-      return result;
-    } else {
-      result.status = 200;
-      result.message = "List of books:";
-      result.data = newBooks;
-      return result;
-    }
+    console.log("Creating Review table");
+    /* Create User table */
+    await Review.sync({ alter: true });
+
+    console.log("Bulk insert users");
+    /* Bulk insert records into User table */
+    const newReview = await Review.bulkCreate([
+      {
+        ratings: 3,
+        comments: "Easy to understand.",
+        userID: 1,
+        bookId: 2,
+      },
+      {
+        ratings: 4,
+        comments: "Very comprehensive",
+        userID: 2,
+        bookId: 3,
+      },
+    ]);
 
     // error handling
     if (!newUsers) {
@@ -135,18 +137,28 @@ module.exports = {
       result.status = 200;
       result.message = "List of Users:";
       result.data = newUsers;
-      return result;
+      //return result;
     }
-
     // error handling
-    if (!newHistories) {
+    if (!newCart) {
       result.status = 404;
-      result.message = `History list is empty`;
+      result.message = `The cart is empty`;
       return result;
     } else {
       result.status = 200;
-      result.message = "List of Histories:";
-      result.data = newHistories;
+      result.message = "List of items in the cart:";
+      result.data = newCart;
+      //return result;
+    }
+
+    if (!newReview) {
+      result.status = 404;
+      result.message = `Reviews list is empty`;
+      return result;
+    } else {
+      result.status = 200;
+      result.message = "List of items in the reviews:";
+      result.data = newReview;
       return result;
     }
   },
