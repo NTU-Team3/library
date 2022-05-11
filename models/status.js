@@ -16,11 +16,19 @@ Status.init(
       allowNull: false,
       field: "status_name",
     },
+    createdAt: {
+      type: DataTypes.DATE,
+      field: "created_at",
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      field: "updated_at",
+    },
   },
   // Model config
   {
     sequelize,
-    modelName: "status",
+    modelName: "Status",
     tableName: "status",
   }
 );

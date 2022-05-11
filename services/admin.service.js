@@ -6,6 +6,7 @@ const Cart = require("../models/cart");
 const Review = require("../models/review");
 const History = require("../models/history");
 const Reservation = require("../models/reservation");
+const Status = require("../models/status");
 
 module.exports = {
   //
@@ -186,6 +187,22 @@ module.exports = {
         status_id: 0,
       },
     ]);
+
+    console.log("Creating Status table");
+    /* Create Review table */
+    await Status.sync({ force: true });
+
+    console.log("Bulk insert status");
+    /* Bulk insert records into review table */
+    const newStatus = await Status.bulkCreate([
+      {
+        status_name: "Fulfilled",
+      },
+      {
+        status_name: "Cancelled",
+      },
+    ]);
+
     // error handling
     if (!newUsers) {
       result.status = 404;
@@ -238,6 +255,17 @@ module.exports = {
       result.status = 200;
       result.message = "List of borrow reservations:";
       result.data = newReservation;
+      //return result;
+    }
+
+    if (!newStatus) {
+      result.status = 404;
+      result.message = `Status master table`;
+      return result;
+    } else {
+      result.status = 200;
+      result.message = "Status master listing:";
+      result.data = newStatus;
       return result;
     }
   },
