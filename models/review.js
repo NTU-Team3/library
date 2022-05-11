@@ -12,31 +12,31 @@ Review.init(
       autoIncrement: true,
     },
     ratings: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       field: "rating",
     },
     comments: {
       type: DataTypes.STRING,
       allowNull: false,
-      field: "your comments",
+      field: "comments",
     },
-    userID: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      field: "user",
-    },
-    book: {
+    userId: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      field: "book title",
+      field: "user_id",
+    },
+    bookId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      field: "book_id",
     },
   },
   // Model config
   {
     sequelize,
     modelName: "Review",
-    tableName: "Reviews",
+    tableName: "review",
   }
 );
 
