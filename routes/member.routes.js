@@ -10,4 +10,19 @@ router.get("/member", (req, res) => {
 
 router.get("/member/history/:historyId", historyController.listHistory);
 
+// import and instantiate cart controller
+const CartController = require("../controllers/cart.controller");
+const cartController = new CartController();
+
+/*GET cart*/
+router.get("/cart", (req, res) => {
+  // res.render("cart", { pageTitle: "View Cart" });
+  res.send("GET Request: cart route");
+});
+
+// router.get("/cart/addUser", cartController.addUser);
+
+/*POST cart*/
+router.get("/cart/addUser", cartController.addUser);
+
 module.exports = router;

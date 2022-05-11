@@ -14,16 +14,13 @@ app.get("/", (req, res) => {
 const adminRoutes = require("./admin.routes");
 const publicRoutes = require("./public.routes");
 const memberRoutes = require("./member.routes");
-const cartRoutes = require("./home");
 
 app.use(adminRoutes);
 app.use(publicRoutes);
 app.use(memberRoutes);
-app.use(cartRoutes);
 
 //const protectedRoutes = require("./protected.routes");
 //app.use(protectedRoutes);
-
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
