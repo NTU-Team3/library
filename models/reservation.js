@@ -19,18 +19,26 @@ Reservation.init(
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      field: "book_id",
+      field: "user_id",
     },
     status_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      field: "book_id",
+      field: "status_id",
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      field: "created_at",
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      field: "updated_at",
     },
   },
   // Model config
   {
     sequelize,
-    modelName: "reservation",
+    modelName: "Reservation",
     tableName: "reservation",
   }
 );

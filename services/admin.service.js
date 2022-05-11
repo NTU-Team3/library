@@ -4,6 +4,8 @@ const Book = require("../models/book");
 const User = require("../models/user");
 const Cart = require("../models/cart");
 const Review = require("../models/review");
+const History = require("../models/history");
+const Reservation = require("../models/reservation");
 
 module.exports = {
   //
@@ -83,10 +85,10 @@ module.exports = {
     ]);
 
     console.log("Creating Cart table");
-    /* Create User table */
+    /* Create Cart table */
     await Cart.sync({ force: true });
 
-    console.log("Bulk insert users");
+    console.log("Bulk insert Cart");
     /* Bulk insert records into User table */
     const newCart = await Cart.bulkCreate([
       {
@@ -108,11 +110,11 @@ module.exports = {
     ]);
 
     console.log("Creating Review table");
-    /* Create User table */
+    /* Create Review table */
     await Review.sync({ force: true });
 
     console.log("Bulk insert users");
-    /* Bulk insert records into User table */
+    /* Bulk insert records into review table */
     const newReview = await Review.bulkCreate([
       {
         ratings: 3,
@@ -128,6 +130,62 @@ module.exports = {
       },
     ]);
 
+    console.log("Creating History table");
+    /* Create Review table */
+    await History.sync({ force: true });
+
+    console.log("Bulk insert histories");
+    /* Bulk insert records into review table */
+    const newHistories = await History.bulkCreate([
+      {
+        userId: 1,
+        bookId: 1,
+        borrowedDate: "2022-01-01 11:11:11",
+        returnDate: "2022-01-10 11:11:11",
+      },
+      {
+        userId: 2,
+        bookId: 2,
+        borrowedDate: "2022-02-01 12:22:22",
+        returnDate: "2022-02-10 12:22:22",
+      },
+      {
+        userId: 3,
+        bookId: 3,
+        borrowedDate: "2022-03-01 13:33:33",
+        returnDate: "2022-03-10 13:33:33",
+      },
+      {
+        userId: 4,
+        bookId: 4,
+        borrowedDate: "2022-04-01 14:44:44",
+        returnDate: "2022-04-10 14:44:44",
+      },
+    ]);
+
+    console.log("Creating Reservation table");
+    /* Create Review table */
+    await Reservation.sync({ force: true });
+
+    console.log("Bulk insert resevations");
+    /* Bulk insert records into review table */
+    const newReservation = await Reservation.bulkCreate([
+      {
+        user_id: 1,
+        book_id: 1,
+        status_id: 0,
+      },
+      {
+        user_id: 1,
+        book_id: 2,
+        status_id: 0,
+      },
+      {
+        user_id: 2,
+        book_id: 3,
+        status_id: 0,
+      },
+    ]);
     // error handling
     if (!newUsers) {
       result.status = 404;
@@ -159,6 +217,27 @@ module.exports = {
       result.status = 200;
       result.message = "List of items in the reviews:";
       result.data = newReview;
+      //return result;
+    }
+
+    if (!newHistories) {
+      result.status = 404;
+      result.message = `Borrow histoy is empty`;
+      return result;
+    } else {
+      result.status = 200;
+      result.message = "List of borrow histories:";
+      result.data = newHistories;
+      //return result;
+    }
+    if (!newReservation) {
+      result.status = 404;
+      result.message = `Book reservation is empty`;
+      return result;
+    } else {
+      result.status = 200;
+      result.message = "List of borrow reservations:";
+      result.data = newReservation;
       return result;
     }
   },
