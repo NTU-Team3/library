@@ -10,12 +10,6 @@ app.set("views", "views");
 // Import libraries for handling HTTP errors
 const createError = require("http-errors");
 
-// app.get("/", (req, res) => {
-//   let info = {};
-//   info.message = "Welcome to our Library!";
-//   res.json(info);
-// });
-
 /* GET home page. */
 const adminRoutes = require("./admin.routes");
 const publicRoutes = require("./public.routes");
