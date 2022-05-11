@@ -13,11 +13,11 @@ app.get("/", (req, res) => {
 
 const adminRoutes = require("./admin.routes");
 const publicRoutes = require("./public.routes");
-//const protectedRoutes = require("./protected.routes");
+const memberRoutes = require("./member.routes");
 
 app.use(adminRoutes);
 app.use(publicRoutes);
-//app.use(protectedRoutes);
+app.use(memberRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
