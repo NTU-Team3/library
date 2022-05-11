@@ -1,5 +1,6 @@
 const { sequelize } = require("../config/db");
 const { DataTypes, Model } = require("sequelize");
+const User = require("./user");
 
 class Cart extends Model {}
 
@@ -20,9 +21,9 @@ Cart.init(
       type: DataTypes.INTEGER,
       field: "user_id",
     },
-    historyId: {
+    bookId: {
       type: DataTypes.INTEGER,
-      field: "history_id",
+      field: "book_id",
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -40,5 +41,16 @@ Cart.init(
     tableName: "carts",
   }
 );
+
+// Create one-to-many associations
+
+// one cart item belongs to one user
+Cart.belongsTo(User, {
+  foreignKey: "userId",
+});
+// one user has many cart items
+User.hasMany(Cart, {
+  foreignKey: "userId",
+});
 
 module.exports = Cart;
