@@ -4,7 +4,6 @@ const { DataTypes, Model } = require("sequelize");
 class Book extends Model {}
 
 Book.init(
-  // column config
   {
     id: {
       type: DataTypes.INTEGER,

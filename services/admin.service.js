@@ -2,6 +2,8 @@ const { sequelize } = require("../config/db");
 
 const Book = require("../models/book");
 const User = require("../models/user");
+const Reservation = require("../models/reservation");
+const status = require("../models/status");
 
 module.exports = {
   //

@@ -27,7 +27,7 @@ module.exports = {
     // error handling
     if (!books) {
       result.status = 404;
-      result.message = `The librart is empty`;
+      result.message = `The library is empty`;
       return result;
     }
 
