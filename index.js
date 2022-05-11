@@ -1,4 +1,5 @@
-require("dotenv").config();
+const port = process.env.PORT || 3000;
+
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -28,4 +29,4 @@ app.use(function (req, res, next) {
 module.exports = app;
 const router = require(".");
 
-app.listen(process.env.PORT);
+app.listen(port, () => console.log(`url-shortener listening on port ${port}!`));
