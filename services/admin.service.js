@@ -3,7 +3,7 @@ const { sequelize } = require("../config/db");
 const Book = require("../models/book");
 const User = require("../models/user");
 const Reservation = require("../models/reservation");
-const status = require("../models/status");
+const Status = require("../models/status");
 
 module.exports = {
   //
@@ -16,7 +16,8 @@ module.exports = {
 
     /* create table Book */
     await Book.sync({ alter: true });
-
+    await Reservation.sync({ alter: true });
+    await Status.sync({ alter: true });
     /* insert bulk records into Book table */
     const newBooks = await Book.bulkCreate([
       {
