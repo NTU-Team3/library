@@ -20,9 +20,11 @@ const createError = require("http-errors");
 const adminRoutes = require("./admin.routes");
 const publicRoutes = require("./public.routes");
 //const protectedRoutes = require("./protected.routes");
+const cartRoutes = require("./home");
 
 app.use(adminRoutes);
 app.use(publicRoutes);
+app.use(cartRoutes);
 //app.use(protectedRoutes);
 
 // catch 404 and forward to error handler
