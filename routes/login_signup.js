@@ -16,17 +16,15 @@ const User = class {
   }
 };
 
+// controller part, register.controller.js
+
 router.get("/login_signup", (req, res) => {
   res.render("login_signup", { pageTitle: "Login/Sign Up" });
 });
 
 router.post("/login_signup", (req, res) => {
   const userInfo = req.body;
-  const newUser = new User(
-    userInfo.fullname,
-    userInfo.email,
-    userInfo.password
-  );
+  const newUser = new User(userInfo.fullname, userInfo.email, userInfo.password);
   newUser.save();
   console.log(customers);
 });
