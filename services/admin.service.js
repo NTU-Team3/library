@@ -15,7 +15,7 @@ module.exports = {
     };
 
     /* create table Book */
-    await Book.sync({ alter: true });
+    await Book.sync({ force: true });
 
     /* insert bulk records into Book table */
     const newBooks = await Book.bulkCreate([
@@ -51,7 +51,7 @@ module.exports = {
 
     console.log("Creating User table");
     /* Create User table */
-    await User.sync({ alter: true });
+    await User.sync({ force: true });
 
     console.log("Bulk insert users");
     /* Bulk insert records into User table */
@@ -84,7 +84,7 @@ module.exports = {
 
     console.log("Creating Cart table");
     /* Create User table */
-    await Cart.sync({ alter: true });
+    await Cart.sync({ force: true });
 
     console.log("Bulk insert users");
     /* Bulk insert records into User table */
@@ -109,7 +109,7 @@ module.exports = {
 
     console.log("Creating Review table");
     /* Create User table */
-    await Review.sync({ alter: true });
+    await Review.sync({ force: true });
 
     console.log("Bulk insert users");
     /* Bulk insert records into User table */
