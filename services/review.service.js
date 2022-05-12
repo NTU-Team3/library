@@ -19,7 +19,7 @@ module.exports = {
     }
 
     result.status = 200;
-    result.message = "Added review successfully";
+    result.message = "Reviews are listed";
     result.data = review;
 
     return result;
