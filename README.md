@@ -52,7 +52,6 @@ _GET:_
 | ------ | -------- | ---------------------- |
 |  GET   | /cart    | display list of cart   |
 |  POST  | /addCart | add bookId and userId  |
-|        | /        |                        |
 
 &nbsp;
 
