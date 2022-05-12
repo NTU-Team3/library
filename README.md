@@ -1,36 +1,37 @@
-# [SDI-M03-library](https://github.com/NTU-Team3/library/)
+## Endpoints
 
-NTU / SkillsUnion Software Developer Immersive group project to showcase our skills and knowledge on Backend Development.
+### _/admin_
 
-We have created a library site with backend code structured using N-tier Architecture with REST endpoints.
+### _/public_
 
-### Deployment Site
+### _/review_
 
-https://t3library.herokuapp.com/
+### _/member/cart_
 
-### Endpoints
+### _/member/history_
 
-| Method | Path | Description |
-| ------ | ---- | ----------- |
-| GET    | /    |             |
-|        | /    |             |
+| Method | Path            | Description                                                      |
+| ------ | --------------- | ---------------------------------------------------------------- |
+| POST   | /create         | 'userId', 'bookId' - create history record                       |
+| PUT    | /update/:userId | 'userId' - update history of user                                |
+| GET    | /:userId        | 'userId' - display history of user, with association model: book |
 
-### Authors
+```
+Test Cases For POST:
+```
 
-- [Irene](https://www.github.com/trainingresult6361)
-- [Ming Sheng](https://www.github.com/kmings93)
-- [Royston](https://www.github.com/roystonlau)
-- [Saiful](https://www.github.com/saifu7bahri)
-- [Wai Chee](https://www.github.com/swaichee)
+- https://t3library.herokuapp.com/member/create
 
-### Built With
+```
+Test Cases For PUT:
+```
 
-- Node.js
-- Express
-- Sequelize
-- Heroku App
-- Heroku Postgresql
-- EJS
-- HTML / CSS
-- Git / GitHub
-- Agile / Scrum
+- https://t3library.herokuapp.com/member/update/2
+
+```
+Test Cases For GET:
+```
+
+- https://t3library.herokuapp.com/member/history/1
+- https://t3library.herokuapp.com/member/history/10
+- https://t3library.herokuapp.com/member/history/100
