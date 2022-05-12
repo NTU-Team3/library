@@ -106,6 +106,40 @@ _GET:_
 
 &nbsp;
 
+### 🚩 _/admin_
+
+| Method | Path            | Description                                      |
+| ------ | ----------------| ------------------------------------------------ |
+|  GET   | /admin/setup    |  setup database with all tables and demo data    |
+|  GET   | /admin/reset    |  reset database; drop all tables
+
+
+&nbsp;
+
+_GET:_
+
+- https://t3library.herokuapp.com/admin/setup
+- https://t3library.herokuapp.com/admin/reset
+
+&nbsp;
+
+
+### 🚩 _/public_
+
+| Method | Path            | Description                                      |
+| ------ | ----------------| ------------------------------------------------ |
+|  GET   | /public/book    |  display all books in the library.               |
+
+&nbsp;
+
+_GET:_
+
+- https://t3library.herokuapp.com/public/book
+
+&nbsp;
+
+---
+
 ## Authors
 
 - [Irene](https://www.github.com/trainingresult6361)
