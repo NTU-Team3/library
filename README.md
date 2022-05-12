@@ -56,6 +56,7 @@ _GET:_
 
 _GET:_
 
+- https://t3library.herokuapp.com/member/history/abc
 - https://t3library.herokuapp.com/member/history/1
 - https://t3library.herokuapp.com/member/history/10
 - https://t3library.herokuapp.com/member/history/100
