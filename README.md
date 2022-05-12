@@ -2,7 +2,7 @@
 
 A NTU / SkillsUnion Software Developer Immersive group project to showcase our skills and knowledge on Backend Development.
 
-We have created a library site with backend code structured using N-tier Architecture with REST endpoints.
+We have developed a library site with backend code structured using N-tier Architecture with REST endpoints.
 
 ### Deployment
 
