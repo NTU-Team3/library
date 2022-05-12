@@ -16,7 +16,6 @@ module.exports = {
 
     console.log(userId);
     console.log(bookId);
-    
 
     const result = {
       status: null,
@@ -42,7 +41,7 @@ module.exports = {
 
     // history.userId = userId;
     // history.bookId = bookId;
-    // history.borrowDate = fborrowDate; 
+    // history.borrowDate = fborrowDate;
     // await history.save(); // save changes made on the line above
 
     result.status = 200;
@@ -50,8 +49,7 @@ module.exports = {
     result.data = t;
 
     return result;
-  };
-},
+  },
 
   /*
    'updateHistory' - SERVICE
