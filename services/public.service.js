@@ -51,14 +51,14 @@ module.exports = {
       return result;
     }
 
-    const books = await Book.findAll({
+    const book = await Book.findAll({
       where: {
         title: { [Op.iLike]: bookTitle },
       },
     });
 
     // error handling
-    if (!books) {
+    if (!book) {
       result.status = 404;
       result.message = `The library is empty`;
       return result;
@@ -66,7 +66,7 @@ module.exports = {
 
     result.status = 200;
     result.message = "List of books in the library:";
-    result.data = books;
+    result.data = book;
 
     return result;
   },

@@ -11,7 +11,7 @@ Status.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    status_name: {
+    statusName: {
       type: DataTypes.STRING,
       allowNull: false,
       field: "status_name",

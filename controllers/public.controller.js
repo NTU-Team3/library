@@ -23,6 +23,7 @@ class PublicController {
 
   async getSearchResult(req, res) {
     const booktitle = req.query.booktitle;
+    console.log(booktitle);
     const { status, data, message } = await publicSerivce.findBookByTitle(
       booktitle
     );
