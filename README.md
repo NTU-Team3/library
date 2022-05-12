@@ -1,38 +1,36 @@
-# [sdi-m03-library](https://github.com/NTU-Team3/library/)
+# [SDI-M03-library](https://github.com/NTU-Team3/library/)
 
-A brief description of what this project does and who it's for
+NTU / SkillsUnion Software Developer Immersive group project to showcase our skills and knowledge on Backend Development.
 
-| Endpoint | Path | Description |
-| -------- | ---- | ----------- |
-|          | /    |             |
-|          | /    |             |
-|          | /    |             |
-|          | /    |             |
-|          | /    |             |
-|          | /    |             |
-|          | /    |             |
-|          | /    |             |
-|          | /    |             |
-|          | /    |             |
+We have created a library site with backend code structured using N-tier Architecture with REST endpoints.
 
-## Deployment
+### Deployment Site
 
-```bash
+https://t3library.herokuapp.com/
 
-```
+### Endpoints
 
-## Authors
+| Method | Path | Description |
+| ------ | ---- | ----------- |
+| GET    | /    |             |
+|        | /    |             |
 
-- [@user](https://www.github.com/user)
-- [@user](https://www.github.com/user)
-- [@user](https://www.github.com/user)
-- [@user](https://www.github.com/user)
-- [@user](https://www.github.com/user)
+### Authors
 
-## Built With
+- [Irene](https://www.github.com/trainingresult6361)
+- [Ming Sheng](https://www.github.com/kmings93)
+- [Royston](https://www.github.com/roystonlau)
+- [Saiful](https://www.github.com/saifu7bahri)
+- [Wai Chee](https://www.github.com/swaichee)
 
--
--
--
--
--
+### Built With
+
+- Node.js
+- Express
+- Sequelize
+- Heroku App
+- Heroku Postgresql
+- EJS
+- HTML / CSS
+- Git / GitHub
+- Agile / Scrum
