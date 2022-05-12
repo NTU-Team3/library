@@ -46,6 +46,30 @@ _GET:_
 
 &nbsp;
 
+### 🚩 _/member/cart_
+
+| Method | Path     | Description            |
+| ------ | -------- | ---------------------- |
+|  GET   | /cart    | display list of cart   |
+|  POST  | /addCart | add bookId and userId  |
+|        | /        |                        |
+
+&nbsp;
+
+_POST:_
+
+- https://t3library.herokuapp.com/member/cart/addCart
+
+_GET:_
+
+- https://t3library.herokuapp.com/member/cart
+
+&nbsp;
+
+---
+
+&nbsp;
+
 ### 🚩 _/member/history_
 
 | Method | Path     | Description                        |
