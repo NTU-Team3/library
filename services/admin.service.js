@@ -2,6 +2,11 @@ const { sequelize } = require("../config/db");
 
 const Book = require("../models/book");
 const User = require("../models/user");
+const Cart = require("../models/cart");
+const Review = require("../models/review");
+const History = require("../models/history");
+const Reservation = require("../models/reservation");
+const Status = require("../models/status");
 
 module.exports = {
   //
@@ -13,7 +18,7 @@ module.exports = {
     };
 
     /* create table Book */
-    await Book.sync({ alter: true });
+    await Book.sync({ force: true });
 
     /* insert bulk records into Book table */
     const newBooks = await Book.bulkCreate([
@@ -49,7 +54,7 @@ module.exports = {
 
     console.log("Creating User table");
     /* Create User table */
-    await User.sync({ alter: true });
+    await User.sync({ force: true });
 
     console.log("Bulk insert users");
     /* Bulk insert records into User table */
@@ -79,17 +84,124 @@ module.exports = {
         noOfBook: 0,
       },
     ]);
-    // error handling
-    if (!newBooks) {
-      result.status = 404;
-      result.message = `Book list is empty`;
-      return result;
-    } else {
-      result.status = 200;
-      result.message = "List of books:";
-      result.data = newBooks;
-      return result;
-    }
+
+    console.log("Creating Cart table");
+    /* Create Cart table */
+    await Cart.sync({ force: true });
+
+    console.log("Bulk insert Cart");
+    /* Bulk insert records into User table */
+    const newCart = await Cart.bulkCreate([
+      {
+        userId: 1,
+        bookId: 1,
+      },
+      {
+        userId: 1,
+        bookId: 2,
+      },
+      {
+        userId: 2,
+        bookId: 1,
+      },
+      {
+        userId: 3,
+        bookId: 4,
+      },
+    ]);
+
+    console.log("Creating Review table");
+    /* Create Review table */
+    await Review.sync({ force: true });
+
+    console.log("Bulk insert users");
+    /* Bulk insert records into review table */
+    const newReview = await Review.bulkCreate([
+      {
+        ratings: 3,
+        comments: "Easy to understand.",
+        userID: 1,
+        bookId: 2,
+      },
+      {
+        ratings: 4,
+        comments: "Very comprehensive",
+        userID: 2,
+        bookId: 3,
+      },
+    ]);
+
+    console.log("Creating History table");
+    /* Create Review table */
+    await History.sync({ force: true });
+
+    console.log("Bulk insert histories");
+    /* Bulk insert records into review table */
+    const newHistories = await History.bulkCreate([
+      {
+        userId: 1,
+        bookId: 1,
+        borrowedDate: "2022-01-01 11:11:11",
+        returnDate: "2022-01-10 11:11:11",
+      },
+      {
+        userId: 2,
+        bookId: 2,
+        borrowedDate: "2022-02-01 12:22:22",
+        returnDate: "2022-02-10 12:22:22",
+      },
+      {
+        userId: 3,
+        bookId: 3,
+        borrowedDate: "2022-03-01 13:33:33",
+        returnDate: "2022-03-10 13:33:33",
+      },
+      {
+        userId: 4,
+        bookId: 4,
+        borrowedDate: "2022-04-01 14:44:44",
+        returnDate: "2022-04-10 14:44:44",
+      },
+    ]);
+
+    console.log("Creating Reservation table");
+    /* Create Review table */
+    await Reservation.sync({ force: true });
+
+    console.log("Bulk insert resevations");
+    /* Bulk insert records into review table */
+    const newReservation = await Reservation.bulkCreate([
+      {
+        user_id: 1,
+        book_id: 1,
+        status_id: 0,
+      },
+      {
+        user_id: 1,
+        book_id: 2,
+        status_id: 0,
+      },
+      {
+        user_id: 2,
+        book_id: 3,
+        status_id: 0,
+      },
+    ]);
+
+    console.log("Creating Status table");
+    /* Create Review table */
+    await Status.sync({ force: true });
+
+    console.log("Bulk insert status");
+    /* Bulk insert records into review table */
+    const newStatus = await Status.bulkCreate([
+      {
+        status_name: "Fulfilled",
+      },
+      {
+        status_name: "Cancelled",
+      },
+    ]);
 
     // error handling
     if (!newUsers) {
@@ -100,6 +212,60 @@ module.exports = {
       result.status = 200;
       result.message = "List of Users:";
       result.data = newUsers;
+      //return result;
+    }
+    // error handling
+    if (!newCart) {
+      result.status = 404;
+      result.message = `The cart is empty`;
+      return result;
+    } else {
+      result.status = 200;
+      result.message = "List of items in the cart:";
+      result.data = newCart;
+      //return result;
+    }
+
+    if (!newReview) {
+      result.status = 404;
+      result.message = `Reviews list is empty`;
+      return result;
+    } else {
+      result.status = 200;
+      result.message = "List of items in the reviews:";
+      result.data = newReview;
+      //return result;
+    }
+
+    if (!newHistories) {
+      result.status = 404;
+      result.message = `Borrow history is empty.`;
+      return result;
+    } else {
+      result.status = 200;
+      result.message = "List of borrow histories:";
+      result.data = newHistories;
+      //return result;
+    }
+    if (!newReservation) {
+      result.status = 404;
+      result.message = `Book reservation is empty`;
+      return result;
+    } else {
+      result.status = 200;
+      result.message = "List of borrow reservations:";
+      result.data = newReservation;
+      //return result;
+    }
+
+    if (!newStatus) {
+      result.status = 404;
+      result.message = `Status master table`;
+      return result;
+    } else {
+      result.status = 200;
+      result.message = "Status master listing:";
+      result.data = newStatus;
       return result;
     }
   },
