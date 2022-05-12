@@ -99,7 +99,7 @@ _GET:_
 
 - https://t3library.herokuapp.com/member/history/abc
 - https://t3library.herokuapp.com/member/history/1
-- https://t3library.herokuapp.com/member/history/10
+- https://t3library.herokuapp.com/member/history/5
 - https://t3library.herokuapp.com/member/history/100
 
 &nbsp;
