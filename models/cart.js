@@ -20,9 +20,9 @@ Cart.init(
       type: DataTypes.INTEGER,
       field: "user_id",
     },
-    historyId: {
+    bookId: {
       type: DataTypes.INTEGER,
-      field: "history_id",
+      field: "book_id",
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -37,7 +37,7 @@ Cart.init(
   {
     sequelize,
     modelName: "Cart",
-    tableName: "carts",
+    tableName: "cart",
   }
 );
 

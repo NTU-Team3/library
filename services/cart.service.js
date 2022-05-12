@@ -1,53 +1,88 @@
-const Carts = require("../models/cart");
+const { sequelize } = require("../config/db");
+const Cart = require("../models/cart");
 // connect to history Model
 // const History = require("../models/history");
 // connect to User model
 const User = require("../models/user");
+const Book = require("../models/book");
 
 module.exports = {
-  addUser: async (cartId, userId) => {
+  addCart: async (bookIdentity, userIdentity) => {
     const result = {
       status: null,
       message: null,
       data: null,
     };
 
-    const cart = await Cart.findByPk(cartId);
-    // connect to history Model
-    // const history = await History.findByPk(historyId);
-    // connect to User model
-    const user = await User.findByPk(userId);
+    // Ensure Book and User exists
+    // Connect to Book and User model
+    const book = await Book.findByPk(bookIdentity);
+    const user = await User.findByPk(userIdentity);
 
-    // error handling
-    if (!cart) {
-      result.status = 404;
-      result.message = `Could not find the cart with id ${cartId}`;
-      return result;
-    }
+    // const cart = await Cart.findByPk(cartId); // KMS: cannot cartId because no argument for cartId
 
-    if (cart.userId) {
+    // >>>>>>>>>>>>>>>>>>>>>> result.send(result); // KMS: error not a function
+
+    // await Cart.sync({ alter: true });
+
+    // // error handling
+    const cart = await Cart.findOne({
+      where: { bookId: bookIdentity, userId: userIdentity },
+    });
+    console.log("cart:", cart);
+
+    if (cart) {
       result.status = 400;
-      result.message = `cart${cartId} already has the user`;
+      result.message = `Cart already has book id ${bookIdentity} and user id ${userIdentity}`;
       return result;
     }
 
-    if (!user) {
-      result.status = 404;
-      result.message = `Could not find the user with id ${userId}`;
-      return result;
-    }
+    // >>>>>> KMS : Technically if no cart, it means it is a new item.
+    // if (!cart) {
+    //   console.log("not cart", cart);
+    //   result.status = 404;
+    //   result.message = `Could not find the cart with an id `;
+    //   return result;
+    // }
+
+    // // if (cart.userId) {
+    // //   result.status = 400;
+    // //   result.message = `cart${cartId} already has the user`;
+    // //   return result;
+    // // }
+
+    // >>>>>>>>>>>>>>>> KMS: tested in controller layer => when there is no value.
+    // if (user == null) {
+    //   result.status = 404;
+    //   result.message = `Could not find the user with id ${userIdentity}`;
+    //   return result;
+    // }
+
+    // if (book == null) {
+    //   result.status = 404;
+    //   result.message = `Could not find the book with id ${bookIdentity}`;
+    //   return result;
+    // }
+
+    const addNewCart = await Cart.create({ bookId: bookIdentity, userId: userIdentity });
 
     // update the cart with new userId
-    cart.userId = user.id;
-    await cart.save();
+    // cart.bookId = book.id;
+    // cart.userId = user.id;
+    // await cart.save();
 
     result.status = 200;
-    result.message = "Added user successfully";
-    result.data = cart;
-
+    result.message = "Added user and book successfully in cart layer";
+    result.data = addNewCart;
+    console.log(result);
     return result;
   },
 
+  // Establish foreign key
+  // book.hasMany(cart, {
+  //   foreignKey: "cartId"});
+
+  //   initiate:
   //   addHistory: async () => {
   //     const result = {
   //       status: null,

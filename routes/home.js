@@ -8,18 +8,25 @@ const createError = require("http-errors");
 const CartController = require("../controllers/cart.controller");
 const cartController = new CartController();
 
-/* GET home page. */
-router.get("/", (req, res) => {
-  res.render("home", { pageTitle: "Welcome to our Library!" });
-});
-
 /*GET cart*/
 router.get("/cart", (req, res) => {
   // res.render("cart", { pageTitle: "View Cart" });
   res.send("GET Request: cart route");
 });
 
+// router.get("/cart/addCart", (req, res) => {
+//   // res.render("cart", { pageTitle: "View Cart" });
+//   res.send("GET Request: add cart");
+// });
+
+// router.get("/cart/addUser", (req, res) => {
+//   res.send(await )
+// }
+// cartController.addUser);
+
 /*POST cart*/
-router.post("/cart/addUser", cartController.addUser);
+router.post("/cart/addCart", cartController.addCart);
+// res.send("posted");
+// >>>>>>>>>>>>>>>>>>>>>>>>>> KMS: cannot use GET ROUTE & POST ROUTE on same end point = YARC cannot work
 
 module.exports = router;
