@@ -239,7 +239,7 @@ module.exports = {
 
     if (!newHistories) {
       result.status = 404;
-      result.message = `Borrow histoy is empty`;
+      result.message = `Borrow history is empty.`;
       return result;
     } else {
       result.status = 200;

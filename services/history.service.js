@@ -15,7 +15,7 @@ module.exports = {
 
     if (!getHistory) {
       result.status = 404;
-      result.message = `Couldnt get any listed history.`;
+      result.message = `There are no associated history for ${historyId}.`;
       return result;
     }
 
