@@ -2,30 +2,39 @@
 
 /* Add padding to containers */
 .container {
-  padding: 16px;
+  padding: 5px;
+  margin: 0 20px;
 }
-
+.login_signup_main{
+ width: 40vw;
+ margin: 0 1rem;
+}
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
   width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
+  padding: 13px;
+  margin: 5px 0 5px 10px;
   display: inline-block;
   border: none;
-  background: #f1f1f1;
+  background-color: #f1f1f1;
+}
+#home_searchbar{
+  border: solid rgba(64, 2, 2, 0.588) 1px;
+  height: 2rem !important;
+  border-radius: 1px;
 }
 
-
 input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
+  background-color: #f1f1f1;
   outline: none;
+  border: 1px solid #a1a1a1;
 }
 
 /* Overwrite default styles of hr */
 hr {
   border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 /* Set a style for the submit/register button */
@@ -46,7 +55,7 @@ hr {
 
 /* Add a blue text color to links */
 a {
-  color: dodgerblue;
+  color: aqua;
 }
 
 /* Set a grey background color and center the text of the "sign in" section */

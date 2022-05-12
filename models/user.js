@@ -17,7 +17,11 @@ User.init(
       field: "email",
     },
     password: {
+<<<<<<< HEAD
       type: DataTypes.STRING(150),
+=======
+      type: DataTypes.STRING(100),
+>>>>>>> royston
       allowNull: false,
       field: "password",
     },

@@ -11,9 +11,9 @@ const router = express.Router();
 // POST comments
 // router.get("/review", (req, res) => {
 //   res.send("Review is under public.");
-  // let info = {};
-  // info.message = "You have reviews";
-  // res.json(info);
+// let info = {};
+// info.message = "You have reviews";
+// res.json(info);
 // });
 // GET reviews
 router.get("/review", reviewController.listReview);

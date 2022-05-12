@@ -8,6 +8,9 @@ const History = require("../models/history");
 const Reservation = require("../models/reservation");
 const Status = require("../models/status");
 
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
+
 module.exports = {
   //
   setup: async () => {
@@ -268,6 +271,17 @@ module.exports = {
       result.data = newStatus;
       return result;
     }
+  },
+  register: async (fullname, email, password) => {
+    bcrypt.genSalt(saltRounds, function (err, salt) {
+      bcrypt.hash(password, salt, async function (err, hash) {
+        const newMember = await User.create({
+          name: fullname,
+          email: email,
+          password: hash,
+        });
+      });
+    });
   },
 
   reset: async () => {
