@@ -4,20 +4,54 @@ A NTU / SkillsUnion Software Developer Immersive group project to showcase our s
 
 We have developed a library site with backend code structured using N-tier Architecture with REST endpoints.
 
-### Deployment
+## ERD
+
+![image](https://user-images.githubusercontent.com/98152745/167982146-b909b2dd-8f51-4a71-b678-f85606f602b5.png)
+
+
+#### Deployment
 
 https://t3library.herokuapp.com/
 
 ## Endpoints
 
-| Method | Path | Description |
-| ------ | ---- | ----------- |
-| GET    | /    |             |
-|        | /    |             |
+### _/admin_
 
-## ERD
+### _/public_
 
-![image](https://user-images.githubusercontent.com/98152745/167982146-b909b2dd-8f51-4a71-b678-f85606f602b5.png)
+### _/review_
+
+### _/member/cart_
+
+### _/member/history_
+
+| Method | Path            | Description                                                      |
+| ------ | --------------- | ---------------------------------------------------------------- |
+| POST   | /create         | 'userId', 'bookId' - create history record                       |
+| PUT    | /update/:userId | 'userId' - update history of user                                |
+| GET    | /:userId        | 'userId' - display history of user, with association model: book |
+
+```
+Test Cases For POST:
+```
+
+- https://t3library.herokuapp.com/member/create
+
+```
+Test Cases For PUT:
+```
+
+- https://t3library.herokuapp.com/member/update/2
+
+```
+Test Cases For GET:
+```
+
+- https://t3library.herokuapp.com/member/history/1
+- https://t3library.herokuapp.com/member/history/10
+- https://t3library.herokuapp.com/member/history/100
+
+
 
 ## Authors
 
