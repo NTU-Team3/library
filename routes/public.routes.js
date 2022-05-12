@@ -5,10 +5,6 @@ const PublicController = require("../controllers/public.controller");
 // Instantiate the class
 const publicController = new PublicController();
 
-const ReviewController = require("../controllers/review.controller");
-// Instantiate the class
-const reviewController = new ReviewController();
-
 const router = express.Router();
 
 router.get("/public", (req, res) => {
@@ -21,6 +17,5 @@ router.get("/public", (req, res) => {
 // Return all the books .
 
 router.get("/public/book", publicController.book);
-router.get("/public/review", reviewController.listReview);
 
 module.exports = router;

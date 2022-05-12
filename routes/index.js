@@ -14,10 +14,12 @@ app.get("/", (req, res) => {
 const adminRoutes = require("./admin.routes");
 const publicRoutes = require("./public.routes");
 const memberRoutes = require("./member.routes");
+const reviews = require("./reviews");
 
 app.use(adminRoutes);
 app.use(publicRoutes);
 app.use(memberRoutes);
+app.use(reviews);
 
 //const protectedRoutes = require("./protected.routes");
 //app.use(protectedRoutes);
