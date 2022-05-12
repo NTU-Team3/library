@@ -46,6 +46,26 @@ _GET:_
 
 &nbsp;
 
+
+### 🚩 _/review_
+
+| Method | Path       | Description                     |
+| ------ | -----------| ------------------------------- |
+|  GET   | /review    |  displaying the latest reviews  |
+
+
+&nbsp;
+
+_GET:_
+
+- https://t3library.herokuapp.com/review
+
+&nbsp;
+
+---
+
+&nbsp;
+
 ### 🚩 _/member/cart_
 
 | Method | Path     | Description            |
