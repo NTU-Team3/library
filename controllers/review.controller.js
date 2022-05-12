@@ -1,19 +1,15 @@
 const reviewService = require("../services/review.service");
 
 class ReviewController {
-  // This is a class, which has methods 'listHistory'
+  // This is a class, which has methods 'listReview'
 
   async listReview(req, res) {
-    const reviewId = req.params.reviewId;
+    // const { reviewId, userId } = req.body;
 
-    if (isNaN(Number(reviewId))) {
-      // res.status (xxx) is actually calling a function
-      res.status(400);
-      return res.send(`reviewId need to be integers.`);
-    }
 
-    // Destructuring the below to status, data, message
-    const { status, data, message } = await reviewService.listReview(reviewId);
+    console.log("Review Controller");
+
+    const { status, data, message } = await reviewService.listReview();
 
     res.status(status);
 
