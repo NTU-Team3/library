@@ -5,10 +5,17 @@ const HistoryController = require("../controllers/history.controller");
 const historyController = new HistoryController();
 
 router.get("/member", (req, res) => {
-  res.send("Welcome User!");
+  res.send(`You have called a member route. Welcome member!`);
 });
 
-router.get("/member/history/:historyId", historyController.listHistory);
+// Create history record using userid and bookid
+// router.post("/member/history/create", historyController.createHistory);
+
+// // Update history using userid
+// router.put("/member/history/update/:userId", historyController.updateHistory);
+
+// List history based on userid
+router.get("/member/history/:userId", historyController.listHistory);
 
 // import and instantiate cart controller
 const CartController = require("../controllers/cart.controller");
