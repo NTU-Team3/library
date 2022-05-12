@@ -11,18 +11,6 @@ router.get("/admin", (req, res) => {
   return res.send("You have called a admin route");
 });
 
-router.get("/admin", (req, res) => {
-  return res.send("You have called a admin route");
-});
-
-router.get("/admin", (req, res) => {
-  return res.send("You have called a admin route");
-});
-router.get("/admin", (req, res) => {
-  return res.send("You have called a admin route");
-});
-
-
 /* ======================================================
 *  Endpoint: Get || setup the database; create all tables with *  records
  ========================================================*/

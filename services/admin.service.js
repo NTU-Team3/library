@@ -5,6 +5,9 @@ const User = require("../models/user");
 const Reservation = require("../models/reservation");
 const Status = require("../models/status");
 
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
+
 module.exports = {
   //
   setup: async () => {
@@ -14,10 +17,11 @@ module.exports = {
       data: null,
     };
 
-    /* create table Book */
+    /* create tables */
     await Book.sync({ alter: true });
     await Reservation.sync({ alter: true });
     await Status.sync({ alter: true });
+
     /* insert bulk records into Book table */
     const newBooks = await Book.bulkCreate([
       {
@@ -105,6 +109,17 @@ module.exports = {
       result.data = newUsers;
       return result;
     }
+  },
+  register: async (fullname, email, password) => {
+    bcrypt.genSalt(saltRounds, function (err, salt) {
+      bcrypt.hash(password, salt, async function (err, hash) {
+        const newMember = await User.create({
+          name: fullname,
+          email: email,
+          password: hash,
+        });
+      });
+    });
   },
 
   reset: async () => {

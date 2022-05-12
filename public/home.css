@@ -5,7 +5,7 @@
         font-family: sans-serif;
       }
     
-
+   
      .nav-list{
        display:  flex;
        margin: 0;
@@ -30,7 +30,24 @@
       }
 
       a:hover,a:active,a.active{
-        color:aqua;
+        color:rgba(9, 31, 53, 0.844);
         font-size: bolder;
+
       }
-     
+      .login{
+        width: 100%;
+        margin: 3rem;
+        display: flex;
+        justify-content: flex-end;
+      }
+     form{
+       display: flex;
+       align-items: center;
+     }
+     #search{
+       margin: 0 10px;
+       height: 2rem;
+       width: 6rem;
+      display: flex;
+      align-items: center;
+     }

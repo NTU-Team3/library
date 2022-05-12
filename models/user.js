@@ -17,7 +17,7 @@ User.init(
       field: "email",
     },
     password: {
-      type: DataTypes.STRING(13),
+      type: DataTypes.STRING(100),
       allowNull: false,
       field: "password",
     },
@@ -44,7 +44,7 @@ User.init(
   {
     sequelize,
     modelName: "User",
-    tableName: "Users",
+    tableName: "user",
   }
 );
 

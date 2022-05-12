@@ -36,7 +36,7 @@ Review.init(
   {
     sequelize,
     modelName: "Review",
-    tableName: "Reviews",
+    tableName: "review",
   }
 );
 
