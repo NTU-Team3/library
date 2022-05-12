@@ -8,7 +8,7 @@ class HistoryController {
 
     if (isNaN(Number(historyId))) {
       res.status(400);
-      return res.send(`historyId need to be integers.`);
+      return res.send(`The history id needs to be an integer.`);
     }
 
     // Destructuring the below to status, data, message
