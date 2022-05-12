@@ -32,6 +32,14 @@ class CartController {
     // // we send the message.
     res.json({ message, data });
   }
+
+  async viewCart(req, res) {
+    console.log("viewCart");
+    // res.send("controller layer");
+    const { status, data, message } = await cartService.viewCart();
+    res.status(status);
+    res.json({ message, data });
+  }
 }
 
 module.exports = CartController;

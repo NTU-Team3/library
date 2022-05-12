@@ -5,8 +5,31 @@ const Cart = require("../models/cart");
 // connect to User model
 const User = require("../models/user");
 const Book = require("../models/book");
+const { book } = require("./public.service");
 
 module.exports = {
+  viewCart: async () => {
+    const results = {
+      status: null,
+      message: null,
+      data: null,
+    };
+
+    const viewCart = await Cart.findAll(
+      // KMS: need to link table relationship
+      {
+        include: [Book, User],
+        order: [["id", "ASC"]],
+      }
+    );
+
+    results.status = 200;
+    results.message = "View cart in service layer";
+    results.data = viewCart; //LMS : Note to change to viewCart
+    console.log(results);
+    return results;
+  },
+
   addCart: async (bookIdentity, userIdentity) => {
     const result = {
       status: null,
@@ -87,46 +110,4 @@ module.exports = {
     console.log(result);
     return result;
   },
-
-  //   initiate:
-  //   addHistory: async () => {
-  //     const result = {
-  //       status: null,
-  //       message: null,
-  //       data: null,
-  //     };
-
-  //     const cart = await Cart.findByPk(cartId);
-  //     // connect to history Model
-  //     const history = await History.findByPk(historyId);
-
-  //     // error handling
-  //     if (!cart) {
-  //       result.status = 404;
-  //       result.message = `Could not find the cart with id ${cartId}`;
-  //       return result;
-  //     }
-
-  //     if (cart.historyId) {
-  //       result.status = 400;
-  //       result.message = `cart${cartId} already has the user`;
-  //       return result;
-  //     }
-
-  //     if (!history) {
-  //       result.status = 404;
-  //       result.message = `Could not find the history with id ${historyId}`;
-  //       return result;
-  //     }
-
-  //     // update the cart with new userId
-  //     cart.historyId = user.id;
-  //     await cart.save();
-
-  //     result.status = 200;
-  //     result.message = "Added history transaction successfully";
-  //     result.data = cart;
-
-  //     return result;
-  //   },
 };
