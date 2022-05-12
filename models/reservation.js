@@ -11,17 +11,17 @@ Reservation.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    book_id: {
+    bookId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       field: "book_id",
     },
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       field: "user_id",
     },
-    status_id: {
+    statusId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       field: "status_id",

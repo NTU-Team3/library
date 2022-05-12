@@ -1,6 +1,7 @@
 const { sequelize } = require("../config/db");
 const { DataTypes, Model } = require("sequelize");
 const User = require("./user");
+const Book = require("./book");
 
 class Cart extends Model {}
 
@@ -51,6 +52,16 @@ Cart.belongsTo(User, {
 // one user has many cart items
 User.hasMany(Cart, {
   foreignKey: "userId",
+});
+
+// one cart item belongs to one book
+Cart.belongsTo(Book, {
+  foreignKey: "bookId",
+});
+
+// one book belong to many cart items
+Book.hasMany(Cart, {
+  foreignKey: "bookId",
 });
 
 module.exports = Cart;

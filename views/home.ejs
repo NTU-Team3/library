@@ -1,31 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%=pageTitle %></title>
-    <link rel="stylesheet" href="/home.css" />
-  </head>
-  <body>
-    <header class="main">
-      <nav>
-        <ul class="nav-list">
-          <li>
-            <a class="active" href="/">Home</a>
-          </li>
-          <li>
-            <a href="/login_signup">Register/Login</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <h1><%=pageTitle %></h1>
-      <form action="/booksearch" method="post">
-        <input type="text" />
-        <button>Search</button>
-      </form>
-    </main>
-  </body>
-</html>
+<%- include('../includes/head.ejs') %>
+
+<body>
+  <%- include('../includes/navigation.ejs') %>
+  <main>
+    <h1><%=pageTitle %></h1>
+    <form action="/booksearch/:booktitle" method="get">
+      <input
+        id="home_searchbar"
+        type="text"
+        placeholder="Find book title here!"
+        name="booktitle"
+      />
+      <button id="search" type="submit">Search</button>
+    </form>
+  </main>
+  <%- include('../includes/end.ejs') %>
+</body>

@@ -17,7 +17,7 @@ User.init(
       field: "email",
     },
     password: {
-      type: DataTypes.STRING(13),
+      type: DataTypes.STRING(150),
       allowNull: false,
       field: "password",
     },
