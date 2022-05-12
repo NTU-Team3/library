@@ -34,3 +34,7 @@ https://t3library.herokuapp.com/
 - HTML / CSS
 - Git / GitHub
 - Agile / Scrum
+
+ERD
+
+![image](https://user-images.githubusercontent.com/98152745/167982146-b909b2dd-8f51-4a71-b678-f85606f602b5.png)
