@@ -44,10 +44,6 @@ _GET:_
 
 ---
 
----
-
----
-
 &nbsp;
 
 ### 🚩 _/member/history_
