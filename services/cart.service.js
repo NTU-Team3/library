@@ -30,13 +30,18 @@ module.exports = {
       where: { bookId: bookIdentity, userId: userIdentity },
     });
     console.log("cart:", cart);
-
+    // duplicated
     if (cart) {
-      result.status = 400;
+      result.status = 404;
       result.message = `Cart already has book id ${bookIdentity} and user id ${userIdentity}`;
       return result;
     }
 
+    // if(!book)
+    // if (cart.userId !== userIdentity || cart.bookId !== bookIdentity) {
+    //   result.status = 400;
+    //   result.message;
+    // }
     // >>>>>> KMS : Technically if no cart, it means it is a new item.
     // if (!cart) {
     //   console.log("not cart", cart);
@@ -65,7 +70,12 @@ module.exports = {
     // }
 
     const addNewCart = await Cart.create({ bookId: bookIdentity, userId: userIdentity });
-
+    console.log("add new cart", addNewCart);
+    if (addNewCart.isNewRecord == "false") {
+      result.status = 404;
+      result.message = "Either userId or bookId does not exists in database";
+      return result;
+    }
     // update the cart with new userId
     // cart.bookId = book.id;
     // cart.userId = user.id;
@@ -77,10 +87,6 @@ module.exports = {
     console.log(result);
     return result;
   },
-
-  // Establish foreign key
-  // book.hasMany(cart, {
-  //   foreignKey: "cartId"});
 
   //   initiate:
   //   addHistory: async () => {

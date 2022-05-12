@@ -16,7 +16,7 @@ class CartController {
 
     // req.body: is from express.
 
-    const { userId, bookId, promoCode } = req.body;
+    const { userId, bookId } = req.body;
     // >>>>> KMS: test for input being empty/ not a number
     if (typeof userId !== "number" || typeof bookId !== "number") {
       res.status(400);
