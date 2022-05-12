@@ -2,7 +2,7 @@
 
 A NTU / SkillsUnion Software Developer Immersive group project to showcase our skills and knowledge on Backend Development.
 
-We have created a library site with backend code structured using N-tier Architecture with REST endpoints.
+We have developed a library site with backend code structured using N-tier Architecture with REST endpoints.
 
 ## ERD
 
@@ -46,13 +46,11 @@ _GET:_
 
 &nbsp;
 
-
 ### 🚩 _/review_
 
-| Method | Path       | Description                     |
-| ------ | -----------| ------------------------------- |
-|  GET   | /review    |  displaying the latest reviews  |
-
+| Method | Path    | Description                   |
+| ------ | ------- | ----------------------------- |
+| GET    | /review | displaying the latest reviews |
 
 &nbsp;
 
@@ -68,10 +66,10 @@ _GET:_
 
 ### 🚩 _/member/cart_
 
-| Method | Path     | Description            |
-| ------ | -------- | ---------------------- |
-|  GET   | /cart    | display list of cart   |
-|  POST  | /addCart | add bookId and userId  |
+| Method | Path     | Description           |
+| ------ | -------- | --------------------- |
+| GET    | /cart    | display list of cart  |
+| POST   | /addCart | add bookId and userId |
 
 &nbsp;
 
@@ -91,9 +89,9 @@ _GET:_
 
 ### 🚩 _/member/history_
 
-| Method | Path     | Description                        |
-| ------ | -------- | ---------------------------------- |
-| GET    | /:userId | 'userId' - display history of user |
+| Method | Path             | Description             |
+| ------ | ---------------- | ----------------------- |
+| GET    | /history/:userId | display history of user |
 
 &nbsp;
 
@@ -106,13 +104,16 @@ _GET:_
 
 &nbsp;
 
+---
+
+&nbsp;
+
 ### 🚩 _/admin_
 
-| Method | Path            | Description                                      |
-| ------ | ----------------| ------------------------------------------------ |
-|  GET   | /admin/setup    |  setup database with all tables and demo data    |
-|  GET   | /admin/reset    |  reset database; drop all tables
-
+| Method | Path         | Description                                  |
+| ------ | ------------ | -------------------------------------------- |
+| GET    | /admin/setup | setup database with all tables and demo data |
+| GET    | /admin/reset | reset database; drop all tables              |
 
 &nbsp;
 
@@ -123,12 +124,15 @@ _GET:_
 
 &nbsp;
 
+---
+
+&nbsp;
 
 ### 🚩 _/public_
 
-| Method | Path            | Description                                      |
-| ------ | ----------------| ------------------------------------------------ |
-|  GET   | /public/book    |  display all books in the library.               |
+| Method | Path         | Description                       |
+| ------ | ------------ | --------------------------------- |
+| GET    | /public/book | display all books in the library. |
 
 &nbsp;
 
@@ -138,8 +142,6 @@ _GET:_
 
 &nbsp;
 
----
-
 ## Authors
 
 - [Irene](https://www.github.com/trainingresult6361)
@@ -147,6 +149,8 @@ _GET:_
 - [Royston](https://www.github.com/roystonlau)
 - [Saiful](https://www.github.com/saifu7bahri)
 - [Wai Chee](https://www.github.com/swaichee)
+
+&nbsp;
 
 ## Built With
 
@@ -159,3 +163,5 @@ _GET:_
 - HTML / CSS
 - Git / GitHub
 - Agile / Scrum
+
+&nbsp;
