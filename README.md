@@ -89,11 +89,16 @@ _GET:_
 
 ### 🚩 _/member/history_
 
-| Method | Path             | Description             |
-| ------ | ---------------- | ----------------------- |
-| GET    | /history/:userId | display history of user |
+| Method | Path             | Description                                        |
+| ------ | ---------------- | -------------------------------------------------- |
+| GET    | /history/:userId | display history of user                            |
+| POST   | /history/create  | creat history of user, using 'userId' and 'bookId' |
 
 &nbsp;
+
+_POST:_
+
+- http://localhost:3000/member/history/create
 
 _GET:_
 
