@@ -175,19 +175,19 @@ module.exports = {
     /* Bulk insert records into review table */
     const newReservation = await Reservation.bulkCreate([
       {
-        user_id: 1,
-        book_id: 1,
-        status_id: 0,
+        userId: 1,
+        bookId: 1,
+        statusId: 0,
       },
       {
-        user_id: 1,
-        book_id: 2,
-        status_id: 0,
+        userId: 1,
+        bookId: 2,
+        statusId: 0,
       },
       {
-        user_id: 2,
-        book_id: 3,
-        status_id: 0,
+        userId: 2,
+        bookId: 3,
+        statusId: 0,
       },
     ]);
 
@@ -199,10 +199,10 @@ module.exports = {
     /* Bulk insert records into review table */
     const newStatus = await Status.bulkCreate([
       {
-        status_name: "Fulfilled",
+        statusName: "Fulfilled",
       },
       {
-        status_name: "Cancelled",
+        statusName: "Cancelled",
       },
     ]);
 
