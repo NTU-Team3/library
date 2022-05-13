@@ -1,4 +1,5 @@
 const Review = require("../models/review");
+// const User = require("../models/user");
 module.exports = {
   listReview: async () => {
     const result = {
@@ -8,8 +9,10 @@ module.exports = {
     };
 
     const review = await Review.findAll({
-            order: [["userId", "ASC"]],
-          });
+        // include: [ User ],
+        order: [["id", "ASC"]],
+    }
+    );
 
     // error handling
     if (!review) {
