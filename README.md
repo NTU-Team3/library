@@ -89,28 +89,59 @@ _GET:_
 
 ### 🚩 _/member/history_
 
-| Method | Path                       | Description                                                                                 |
-| ------ | -------------------------- | ------------------------------------------------------------------------------------------- |
-| GET    | /history/:userId           | list all history records of user, with association model 'Book'                             |
-| POST   | /history/create            | create new history record of user, using 'userId' and 'bookId'                              |
-| PUT    | /history/update/:historyId | update history of user, using 'historyId', 'returnDate' will be populated with current date |
+| Method | Path               | Description                                                                                |
+| ------ | ------------------ | ------------------------------------------------------------------------------------------ |
+| GET    | /:userId           | List all history records of user, along with association model 'Book'.                     |
+| POST   | /create            | Create new history record of user with 'userId' and 'bookId'.                              |
+| PUT    | /update/:historyId | Update history of user with 'historyId', 'returnDate' will be populated with current date. |
 
 &nbsp;
 
 _GET:_
 
-- https://t3library.herokuapp.com/member/history/abc
+`✔️ Successful: User exists`
+
 - https://t3library.herokuapp.com/member/history/1
-- https://t3library.herokuapp.com/member/history/5
+
+`⛔ Not successful: Validation failed with non-integers`
+
+- https://t3library.herokuapp.com/member/history/abc
+
+`⛔ Not successful: User exists, but has no history records`
+
+- https://t3library.herokuapp.com/member/history/4
+
+`⛔ Not successful: User does not exist`
+
 - https://t3library.herokuapp.com/member/history/100
+
+&nbsp;
 
 _POST:_
 
+`✔️ Successful: Using { "userId": 2 , "bookId": 2 }`
+
+`⛔ Not Successful: Using { "userId": 100 , "bookId": 2 } - User does not exist`
+
+`⛔ Not Successful: Using { "userId": 2 , "bookId": 100 } - Book does not exist`
+
 - https://t3library.herokuapp.com/member/history/create
+
+&nbsp;
 
 _PUT:_
 
-- https://t3library.herokuapp.com/member/history/update/4
+`✔️ Successful: History record exists`
+
+- https://t3library.herokuapp.com/member/history/update/3
+
+`⛔ Not successful: Validation failed with non-integers`
+
+- https://t3library.herokuapp.com/member/history/update/abc
+
+`⛔ Not successful: History record does not exist`
+
+- https://t3library.herokuapp.com/member/history/update/100
 
 &nbsp;
 

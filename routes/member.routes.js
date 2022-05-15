@@ -1,21 +1,35 @@
 const express = require("express");
 const router = express.Router();
 
-const HistoryController = require("../controllers/history.controller");
-const historyController = new HistoryController();
-
 router.get("/member", (req, res) => {
   res.send(`You have called a member route. Welcome member!`);
 });
 
-// Create history record using userid and bookid
-// router.post("/member/history/create", historyController.createHistory);
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+/*
 
-// // Update history using userid
-// router.put("/member/history/update/:userId", historyController.updateHistory);
+  /member/history - ROUTE STARTS 
 
-// List history based on userid
+*/
+
+const HistoryController = require("../controllers/history.controller");
+const historyController = new HistoryController();
+
+// List histories based on userid, with association model 'Book'
 router.get("/member/history/:userId", historyController.listHistory);
+
+// Create new history record using userid and bookid
+router.post("/member/history/create", historyController.createHistory);
+
+// Update history using historyid, 'returnDate' will be populated/refreshed with current date
+router.put("/member/history/update/:historyId", historyController.updateHistory);
+
+/*
+
+  /member/history - ROUTE ENDS 
+
+*/
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 // import and instantiate cart controller
 const CartController = require("../controllers/cart.controller");
