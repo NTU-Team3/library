@@ -46,7 +46,7 @@ History.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-History.hasMany(Book, {
+History.belongsTo(Book, {
   foreignKey: "book_id",
 });
 
