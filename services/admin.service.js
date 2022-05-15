@@ -160,7 +160,7 @@ module.exports = {
         returnDate: null,
       },
       {
-        userId: 4,
+        userId: 1,
         bookId: 4,
         borrowedDate: "2022-04-01 14:44:44",
         returnDate: null,
