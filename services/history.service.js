@@ -18,8 +18,7 @@ module.exports = {
 
     // Do these with models
     const getUser = await User.findByPk(userId);
-    const getHistory = await History.findAll({ where: { user_id: userId } });
-    let getBook = [];
+    const getHistory = await History.findAll({ where: { user_id: userId }, include: Book, order: [["id", "ASC"]] });
 
     if (!getUser) {
       result.status = 404;
@@ -33,14 +32,9 @@ module.exports = {
       return result;
     }
 
-    // getHistory.forEach((h) => {
-    //   const foo = await Book.findAll({ where: { id: h.bookId } })
-    //   getBook.push(foo);
-    // });
-
     result.status = 200;
     result.message = `History DB Query (listHistory) / (Successful) - For user '${getUser.name}' with email '${getUser.email}'.`;
-    result.data = [getHistory, getBook];
+    result.data = getHistory;
 
     return result;
   },
@@ -113,7 +107,7 @@ module.exports = {
     await getHistory.save();
 
     result.status = 200;
-    result.message = `History DB Insertion (createHistory) / (Successful) - For historyId '${historyId}' with userId '${history.userId}' and bookId '${history.bookId}'.`;
+    result.message = `History DB Insertion (createHistory) / (Successful) - For historyId '${historyId}' with userId '${getHistory.userId}' and bookId '${getHistory.bookId}'.`;
     result.data = getHistory;
 
     return result;

@@ -89,11 +89,11 @@ _GET:_
 
 ### 🚩 _/member/history_
 
-| Method | Path                       | Description                                                                                 |
-| ------ | -------------------------- | ------------------------------------------------------------------------------------------- |
-| GET    | /history/:userId           | list all history records of user, with association model 'Book'                             |
-| POST   | /history/create            | create new history record of user, using 'userId' and 'bookId'                              |
-| PUT    | /history/update/:historyId | update history of user, using 'historyId', 'returnDate' will be populated with current date |
+| Method | Path               | Description                                                                                |
+| ------ | ------------------ | ------------------------------------------------------------------------------------------ |
+| GET    | /:userId           | List all history records of user, along with association model 'Book'.                     |
+| POST   | /create            | Create new history record of user with 'userId' and 'bookId'.                              |
+| PUT    | /update/:historyId | Update history of user with 'historyId', 'returnDate' will be populated with current date. |
 
 &nbsp;
 
@@ -101,7 +101,7 @@ _GET:_
 
 - https://t3library.herokuapp.com/member/history/abc
 - https://t3library.herokuapp.com/member/history/1
-- https://t3library.herokuapp.com/member/history/5
+- https://t3library.herokuapp.com/member/history/4
 - https://t3library.herokuapp.com/member/history/100
 
 _POST:_
@@ -110,7 +110,7 @@ _POST:_
 
 _PUT:_
 
-- https://t3library.herokuapp.com/member/history/update/4
+- https://t3library.herokuapp.com/member/history/update/3
 
 &nbsp;
 
