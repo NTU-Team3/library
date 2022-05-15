@@ -157,13 +157,13 @@ module.exports = {
         userId: 3,
         bookId: 3,
         borrowedDate: "2022-03-01 13:33:33",
-        returnDate: "2022-03-10 13:33:33",
+        returnDate: null,
       },
       {
         userId: 4,
         bookId: 4,
         borrowedDate: "2022-04-01 14:44:44",
-        returnDate: "2022-04-10 14:44:44",
+        returnDate: null,
       },
     ]);
 
