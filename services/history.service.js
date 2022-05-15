@@ -100,14 +100,14 @@ module.exports = {
       return result;
     }
 
-    // Updates entry and saves it into database
+    // Updates only 'returnDate' and saves it into database
     getHistory.set({
       returnDate: new Date(),
     });
     await getHistory.save();
 
     result.status = 200;
-    result.message = `History DB Insertion (createHistory) / (Successful) - For historyId '${historyId}' with userId '${getHistory.userId}' and bookId '${getHistory.bookId}'.`;
+    result.message = `History DB Update (updateHistory) / (Successful) - For historyId '${historyId}' with userId '${getHistory.userId}' and bookId '${getHistory.bookId}'.`;
     result.data = getHistory;
 
     return result;
