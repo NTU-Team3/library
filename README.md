@@ -89,16 +89,13 @@ _GET:_
 
 ### 🚩 _/member/history_
 
-| Method | Path             | Description                                        |
-| ------ | ---------------- | -------------------------------------------------- |
-| GET    | /history/:userId | display history of user                            |
-| POST   | /history/create  | creat history of user, using 'userId' and 'bookId' |
+| Method | Path                       | Description                                                                                 |
+| ------ | -------------------------- | ------------------------------------------------------------------------------------------- |
+| GET    | /history/:userId           | list all history records of user, with association model 'Book'                             |
+| POST   | /history/create            | create new history record of user, using 'userId' and 'bookId'                              |
+| PUT    | /history/update/:historyId | update history of user, using 'historyId', 'returnDate' will be populated with current date |
 
 &nbsp;
-
-_POST:_
-
-- http://localhost:3000/member/history/create
 
 _GET:_
 
@@ -106,6 +103,14 @@ _GET:_
 - https://t3library.herokuapp.com/member/history/1
 - https://t3library.herokuapp.com/member/history/5
 - https://t3library.herokuapp.com/member/history/100
+
+_POST:_
+
+- https://t3library.herokuapp.com/member/history/create
+
+_PUT:_
+
+- https://t3library.herokuapp.com/member/history/update/4
 
 &nbsp;
 
