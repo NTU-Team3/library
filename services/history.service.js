@@ -56,7 +56,7 @@ module.exports = {
 
     if (!user) {
       result.status = 404;
-      result.message = `History DB Insertion (createHistory) / (NOT successful) - 'No records with userId ${userId}' exists.`;
+      result.message = `History DB Insertion (createHistory) / (NOT successful) - 'No records with userId '${userId}' exists.`;
       return result;
     }
 
