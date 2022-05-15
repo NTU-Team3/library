@@ -99,18 +99,49 @@ _GET:_
 
 _GET:_
 
-- https://t3library.herokuapp.com/member/history/abc
+`✔️ Successful: User exists`
+
 - https://t3library.herokuapp.com/member/history/1
+
+`⛔ Not successful: Validation failed with non-integers`
+
+- https://t3library.herokuapp.com/member/history/abc
+
+`⛔ Not successful: User exists, but has no history records`
+
 - https://t3library.herokuapp.com/member/history/4
+
+`⛔ Not successful: User does not exist`
+
 - https://t3library.herokuapp.com/member/history/100
+
+&nbsp;
 
 _POST:_
 
+`✔️ Successful: Using { "userId": 2 , "bookId": 2 }`
+
+`⛔ Not Successful: Using { "userId": 100 , "bookId": 2 } - User does not exist`
+
+`⛔ Not Successful: Using { "userId": 2 , "bookId": 100 } - Book does not exist`
+
 - https://t3library.herokuapp.com/member/history/create
+
+&nbsp;
 
 _PUT:_
 
+`✔️ Successful: History record exists`
+
 - https://t3library.herokuapp.com/member/history/update/3
+
+`⛔ Not successful: Validation failed with non-integers`
+
+- https://t3library.herokuapp.com/member/history/update/abc
+
+`⛔ Not successful: History record does not exist`
+
+- https://t3library.herokuapp.com/member/history/update/100
 
 &nbsp;
 
