@@ -117,7 +117,7 @@ _GET:_
 
 &nbsp;
 
-_POST:_
+_POST: (yarc!)_
 
 `✔️ Successful: Using { "userId": 2 , "bookId": 2 }`
 
@@ -129,7 +129,7 @@ _POST:_
 
 &nbsp;
 
-_PUT:_
+_PUT: (yarc!)_
 
 `✔️ Successful: History record exists`
 
