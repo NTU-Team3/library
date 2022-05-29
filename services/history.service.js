@@ -3,7 +3,7 @@ const User = require("../models/user");
 const Book = require("../models/book");
 
 module.exports = {
-  // Exporting an object, with methods  'listHistory', 'createHistory', 'updateHistory'
+  // Exporting an object, with methods 'listHistory', 'createHistory', 'updateHistory'
 
   /*
    'listHistory' - SERVICE
@@ -22,25 +22,25 @@ module.exports = {
 
     if (!getUser) {
       result.status = 404;
-      result.message = `History DB Query (listHistory) / (NOT successful) - User '${userId}' does not exist in database.`;
+      result.message = `History - service (listHistory) / (NOT SUCCESSFUL) - User '${userId}' does not exist in database.`;
       return result;
     }
 
     if (JSON.stringify(getHistory) === "[]") {
       result.status = 404;
-      result.message = `History DB Query (listHistory) / (NOT successful) - There is no associated book history for user '${getUser.name} - ${getUser.email}'.`;
+      result.message = `History - service (listHistory) / (NOT SUCCESSFUL) - There is no associated book history for user '${getUser.name} - ${getUser.email}'.`;
       return result;
     }
 
     result.status = 200;
-    result.message = `History DB Query (listHistory) / (Successful) - For user '${getUser.name}' with email '${getUser.email}'.`;
+    result.message = `History - service (listHistory) / (SUCCESSFUL) - For user '${getUser.name}' with email '${getUser.email}'.`;
     result.data = getHistory;
 
     return result;
   },
 
   /*
-   'createHistory' - CONTROLLER
+   'createHistory' - SERVICE
   */
   createHistory: async (userId, bookId) => {
     // Gets userId, bookId from controller
@@ -56,13 +56,13 @@ module.exports = {
 
     if (!user) {
       result.status = 404;
-      result.message = `History DB Insertion (createHistory) / (NOT successful) - 'No records with userId '${userId}' exists.`;
+      result.message = `History - service (createHistory) / (NOT SUCCESSFUL) - 'No records with userId '${userId}' exists.`;
       return result;
     }
 
     if (!book) {
       result.status = 404;
-      result.message = `History DB Insertion (createHistory) / (NOT successful) - No records with bookId '${bookId}' exists.`;
+      result.message = `History - service (createHistory) / (NOT SUCCESSFUL) - No records with bookId '${bookId}' exists.`;
       return result;
     }
 
@@ -74,7 +74,7 @@ module.exports = {
     });
 
     result.status = 200;
-    result.message = `History DB Insertion (createHistory) / (Successful) - For userId '${userId}' and bookId '${bookId}'.`;
+    result.message = `History - service (createHistory) / (SUCCESSFUL) - For userId '${userId}' and bookId '${bookId}'.`;
     result.data = createHistory;
 
     return result;
@@ -96,7 +96,7 @@ module.exports = {
 
     if (!getHistory) {
       result.status = 404;
-      result.message = `History DB Update (updateHistory) / (NOT successful) - No records with historyId '${historyId}' exists.`;
+      result.message = `History - service (updateHistory) / (NOT SUCCESSFUL) - No records with historyId '${historyId}' exists.`;
       return result;
     }
 
@@ -107,7 +107,7 @@ module.exports = {
     await getHistory.save();
 
     result.status = 200;
-    result.message = `History DB Update (updateHistory) / (Successful) - For historyId '${historyId}' with userId '${getHistory.userId}' and bookId '${getHistory.bookId}'.`;
+    result.message = `History - service (updateHistory) / (SUCCESSFUL) - For historyId '${historyId}' with userId '${getHistory.userId}' and bookId '${getHistory.bookId}'.`;
     result.data = getHistory;
 
     return result;

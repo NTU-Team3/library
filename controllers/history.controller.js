@@ -11,7 +11,7 @@ class HistoryController {
 
     if (isNaN(Number(userId))) {
       res.status(400);
-      return res.send(`History Validation (listHistory) - User Id needs to be an integer.`);
+      return res.send(`History - controller (listHistory) - User Id needs to be an integer.`);
     }
 
     // Destructuring the below to status, data, message
@@ -30,7 +30,7 @@ class HistoryController {
 
     if (typeof userId !== "number" || typeof bookId !== "number") {
       res.status(400);
-      return res.send(`History Validation (createHistory) - User Id and/or Book Id need to be integers.`);
+      return res.send(`History - controller (createHistory) - User Id and/or Book Id need to be integers.`);
     }
 
     // Destructuring the below to status, data, message
@@ -50,7 +50,7 @@ class HistoryController {
 
     if (isNaN(Number(historyId))) {
       res.status(400);
-      return res.send(`History Validation (updateHistory) - History Id needs to be an integer.`);
+      return res.send(`History  - controller (updateHistory) - History Id needs to be an integer.`);
     }
 
     // Destructuring the below to status, data, message
