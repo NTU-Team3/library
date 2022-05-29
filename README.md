@@ -89,7 +89,7 @@ _GET:_
 
 _POST: (yarc!)_
 
-`✔️ Successful: Using { "userId": 2 , "bookId": 2 }`
+`✔️ Successful: Using { "userId": 2 , "bookId": 4 }`
 
 `⛔ Not Successful: Using { "userId": 100 , "bookId": 2 } - User does not exist`
 
