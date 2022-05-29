@@ -14,34 +14,6 @@ https://t3library.herokuapp.com/
 
 ## Endpoints
 
-&nbsp;
-
-### 🚩 _/template-endpoint-path_
-
-| Method | Path | Description |
-| ------ | ---- | ----------- |
-|        | /    |             |
-|        | /    |             |
-|        | /    |             |
-
-&nbsp;
-
-_POST:_
-
-- https://t3library.herokuapp.com/
-
-_PUT:_
-
-- https://t3library.herokuapp.com/
-
-_GET:_
-
-- https://t3library.herokuapp.com/
-- https://t3library.herokuapp.com/
-- https://t3library.herokuapp.com/
-
-&nbsp;
-
 ---
 
 &nbsp;
@@ -99,15 +71,15 @@ _GET:_
 
 _GET:_
 
-`✔️ Successful: User exists`
+`✔️ Successful: User exists with history records`
 
 - https://t3library.herokuapp.com/member/history/1
 
-`⛔ Not successful: Validation failed with non-integers`
+`⛔ Not successful: Validation test failed with non-integers`
 
 - https://t3library.herokuapp.com/member/history/abc
 
-`⛔ Not successful: User exists, but has no history records`
+`⛔ Not successful: User exists with no history records`
 
 - https://t3library.herokuapp.com/member/history/4
 
@@ -135,7 +107,7 @@ _PUT: (yarc!)_
 
 - https://t3library.herokuapp.com/member/history/update/3
 
-`⛔ Not successful: Validation failed with non-integers`
+`⛔ Not successful: Validation test failed with non-integers`
 
 - https://t3library.herokuapp.com/member/history/update/abc
 
